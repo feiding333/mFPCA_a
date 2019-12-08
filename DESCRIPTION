@@ -1,0 +1,13 @@
+Package: mFPCA
+Type: Package
+Title: Multivariate Functional PCA
+Version: 1.0
+Date: 2017-03-29
+Author: Shiyuan He
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: More about what it does (maybe more than one line)
+License: What license is it under?
+Imports: methods, Rcpp (>= 0.12.8)
+LinkingTo: Rcpp, RcppArmadillo
+Suggests: thestthat
+Depends: ggplot2, Matrix, FDABasics

@@ -1,0 +1,5 @@
+useDynLib(mFPCA)
+importFrom(Rcpp, evalCpp)
+exportPattern("^[[:alpha:]]+")
+import(methods,Rcpp)
+
