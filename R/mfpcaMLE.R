@@ -150,7 +150,7 @@ MFPCA_Initial = function(optObj, optRank, controlList){
          XInit = list(UInit, 
                  diag(WInit))
      }else{
-        XInit = list(UInit, 
+        XInit = list(as.matrix(UInit), 
                  as.matrix(WInit))
         }
    
