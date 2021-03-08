@@ -146,8 +146,14 @@ MFPCA_Initial = function(optObj, optRank, controlList){
     WInit = SInit_eigen$values[1:optRank]
     mm = min(WInit[WInit>0])
     WInit[WInit <= 0] = mm
-    XInit = list(UInit, 
+    if(length(WInit)>1){
+         XInit = list(UInit, 
                  diag(WInit))
+     }else{
+        XInit = list(UInit, 
+                 as.matrix(WInit))
+        }
+   
     return(XInit)
 }
 
