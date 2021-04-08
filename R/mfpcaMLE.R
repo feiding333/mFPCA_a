@@ -145,6 +145,9 @@ MFPCA_Initial = function(optObj, optRank, controlList){
     UInit = SInit_eigen$vectors[,1:optRank]
     WInit = SInit_eigen$values[1:optRank]
     mm = min(WInit[WInit>0])
+    if(mm == Inf){
+        mm = 0
+    }
     WInit[WInit <= 0] = mm
     if(length(WInit)>1){
          XInit = list(UInit, 
