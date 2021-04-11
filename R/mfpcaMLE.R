@@ -86,7 +86,13 @@ MFPCA_EstimateMLE = function(obsData, splineObj,
     
     if(is.null(SInit))
         SInit = MFPCA_Initial(trainObj, optRank, controlList1 )
-    SFinal = MFPCA_SecondMLE(trainObj, optRank, controlList2, SInit)
+    try({
+            SFinal = MFPCA_SecondMLE(trainObj, optRank, controlList2, SInit)  
+        })        
+    if ("try-error" %in% class(SFinal)) {
+        print("MFPCA_SecondMLE chol problem")
+        SFinal = SInit
+        }    
     sigmaSq =  1 ##trainObj$get_sigmaSq() XX
     
     # convert matrices SFinal to R functions
