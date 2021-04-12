@@ -86,10 +86,10 @@ MFPCA_EstimateMLE = function(obsData, splineObj,
     
     if(is.null(SInit))
         SInit = MFPCA_Initial(trainObj, optRank, controlList1 )
-    try({
+    triedthis = try({
             SFinal = MFPCA_SecondMLE(trainObj, optRank, controlList2, SInit)  
         })        
-    if ("try-error" %in% class(SFinal)) {
+    if (inherits(triedthis, "try-error")) {
         print("MFPCA_SecondMLE chol problem")
         SFinal = SInit
         }    
